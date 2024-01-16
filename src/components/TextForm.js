@@ -74,6 +74,10 @@ export default function TextForm(prop) {
                     value={text}
                     onChange={handleOnChange}
                     placeholder="Enter Text here"
+                    style={{
+                        backgroundColor: prop.mode==='light'?'white':'#151e2d',
+                        color: prop.mode==='dark'?'white':'#151e2d'
+                    }}
                 ></textarea>
                 <button className="btn btn-primary my-2" onClick={handleOnClickUpperCase}>Convert to Uppercase</button>
                 <button className="btn btn-primary mx-2 my-2" onClick={handleOnClickLowerCase}>Convert to Lowercase</button>
@@ -85,7 +89,7 @@ export default function TextForm(prop) {
                 <h2>{prop.summaryHeading}</h2>
                 <p>{countWords(text)} words, {text.length} Characters</p>
                 <h3>{prop.previewHeading}</h3>
-                <p>{text}</p>
+                <p>{text.length>0?text:"Enter something on TextArea to preview it here!"}</p>
             </div>
         </>
     );
